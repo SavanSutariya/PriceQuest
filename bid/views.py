@@ -1,9 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import *
 
 def index(request):
-    return render(request, "bid/base.html")
+    auctions = Auction.objects.all()
+    context = {'auctions': auctions}
+    return render(request, "bid/auctions_list.html", context)
 
-def auctions(request):
-    return HttpResponse("Hello, world. You're at the bid auctions.")
+def create(request):
+    # form = AuctionForm()
+    # context = {'form': form}
+    return render(request, "bid/auction_create.html")
+
+def auctions(request,catId):
+    auctions = Auction.objects.filter(category=catId)
+    context = {'auctions': auctions}
+    return render(request, "bid/auctions_list.html", context)

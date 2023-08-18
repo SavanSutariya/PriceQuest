@@ -1,0 +1,10 @@
+{% extends 'bid/base.html' %}
+{% block title %}Create auction{% endblock title %}
+{% block content %}
+    <h1>Create auction</h1>
+    <form method="post" action="#">
+        {% comment %} {% csrf_token %}
+        {{ form.as_p }} {% endcomment %}
+        <button type="submit">Create</button>
+    </form>
+{% endblock content %}

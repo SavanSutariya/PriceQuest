@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('auctions/', views.auctions, name='auctions'),
+    path('auctions/<int:catId>', views.auctions, name='auctions'),
     # path('auction/<int:id>/', views.auction, name='auction'),
     # path('auction/<int:id>/bid/', views.bid, name='bid'),
     # path('auction/<int:id>/comment/', views.comment, name='comment'),
@@ -23,7 +23,7 @@ urlpatterns = [
     # path('watchlist/<int:id>/remove/', views.remove, name='remove'),
     # path('watchlist/<int:id>/add/', views.add, name='add'),
 
-    # path('create/', views.create, name='create'),
+    path('create/', views.create, name='create'),
     # path('profile/', views.profile, name='profile'),
     # path('profile/<int:id>/', views.profile, name='profile'),
 ]
