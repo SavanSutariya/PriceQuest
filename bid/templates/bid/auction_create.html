@@ -1,10 +1,26 @@
 {% extends 'bid/base.html' %}
 {% block title %}Create auction{% endblock title %}
 {% block content %}
+<div class="container">
     <h1>Create auction</h1>
     <form method="post" action="#">
-        {% comment %} {% csrf_token %}
-        {{ form.as_p }} {% endcomment %}
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="form-group">
+            <label for="{{ fm.id_for_label }}">{{ fm.label }}</label>
+            {% if fm.errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in fm.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if fm.help_text %}
+            <p class="help-text">{{ fm.help_text }}</p>
+            {% endif %}
+            {{ fm }}
+        {% endfor %}    
         <button type="submit">Create</button>
     </form>
+</div>
 {% endblock content %}
