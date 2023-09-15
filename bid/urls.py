@@ -19,10 +19,6 @@ urlpatterns = [
     # path('logout/', views.logout_view, name='logout'),
     # path('register/', views.register, name='register'),
 
-    # path('watchlist/', views.watchlist, name='watchlist'),
-    # path('watchlist/<int:id>/remove/', views.remove, name='remove'),
-    # path('watchlist/<int:id>/add/', views.add, name='add'),
-
     path('create/', views.create, name='create'),
     # path('profile/', views.profile, name='profile'),
     # path('profile/<int:id>/', views.profile, name='profile'),

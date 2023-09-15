@@ -4,7 +4,10 @@
     <h2>Auction List</h2>
     <ul>
         {% for auction in auctions %}
-            <li><a href="#">{{ auction.title }}</a></li>
+            <li>
+                <img src="{{ auction.image.url }}" alt="{{ auction.name }}" width="100" height="100">
+                <a href="#">{{ auction.name }}</a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock content %}
